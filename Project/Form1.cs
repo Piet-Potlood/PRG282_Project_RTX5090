@@ -43,6 +43,7 @@ namespace Project
             }
 
             studentlist = dataHandler.AddStudent(studentlist, (id + 1), txtName.Text, "PlaceHolderText", int.Parse(txtAge.Text), txtCourse.Text);
+            fileHandler.AddStudent(studentlist);
             MessageBox.Show("The student has been successfully added!", "Student Captured");
             bindingSource.DataSource = "";
             bindingSource.DataSource = studentlist;
@@ -91,6 +92,7 @@ namespace Project
             IDholder = int.Parse(test);
 
             dataHandler.EditStudent(studentlist, IDholder, IDholder, txtName.Text, int.Parse(txtAge.Text), txtCourse.Text);
+            fileHandler.UpdateStudent(studentlist);
             bindingSource.DataSource = "";
             bindingSource.DataSource = studentlist;
             dgvStudents.DataSource = bindingSource;
@@ -103,6 +105,7 @@ namespace Project
             IDholder = int.Parse(test);
 
             studentlist = dataHandler.DeleteStudent(studentlist, IDholder);
+            fileHandler.DeleteStudent(studentlist);
             bindingSource.DataSource = "";
             bindingSource.DataSource = studentlist;
             dgvStudents.DataSource = bindingSource;

@@ -56,6 +56,52 @@ namespace Project
             }
         }
 
+        public void AddStudent(List<Student> newstudent)
+        {
+            using (StreamWriter writer = new StreamWriter(Filepath))
+            {
+                string text;
+                foreach (Student student in newstudent)
+                {
+                    text = student.StudentID + ":" + student.Name + ":" + student.Surname + ":" + student.Age + ":" + student.Course;
+                    writer.WriteLine(text);
+                }
+
+            }
+
+
+
+        }
+
+        public void DeleteStudent(List<Student> students)
+        {
+            using (StreamWriter writer = new StreamWriter(Filepath))
+            {
+                string text;
+                foreach (Student student in students)
+                {
+                    text = student.StudentID + ":" + student.Name + ":" + student.Surname + ":" + student.Age + ":" + student.Course;
+                    writer.WriteLine(text);
+                }
+
+            }
+        }
+
+        public void UpdateStudent(List<Student> students)
+        {
+            using (StreamWriter writer = new StreamWriter(Filepath))
+            {
+                string text;
+                foreach (Student student in students)
+                {
+                    text = student.StudentID + ":" + student.Name + ":" + student.Surname + ":" + student.Age + ":" + student.Course;
+                    writer.WriteLine(text);
+                }
+
+            }
+        
+        }
+
         public List<Student> PopulateList(List<Student> studentlist)
         {
             FileStream fileStream = new FileStream(Filepath, FileMode.OpenOrCreate);
@@ -71,6 +117,7 @@ namespace Project
             reader.Close();
             return studentlist;
         }
+
 
 
 
